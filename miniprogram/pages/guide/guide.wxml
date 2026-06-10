@@ -1,0 +1,64 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <text class="page-title">检测指南</text>
+    <view class="header-right"></view>
+  </view>
+  
+  <view class="content">
+    <view class="guide-section">
+      <view class="section-card">
+        <view class="card-icon">📋</view>
+        <view class="card-content">
+          <text class="card-title">检测前准备</text>
+          <text class="card-desc">1. 提前预约检测时间，携带身份证等有效证件</text>
+          <text class="card-desc">2. 检测前避免剧烈运动和饮酒</text>
+          <text class="card-desc">3. 穿着宽松舒适的衣物</text>
+        </view>
+      </view>
+      
+      <view class="section-card">
+        <view class="card-icon">🔬</view>
+        <view class="card-content">
+          <text class="card-title">检测流程</text>
+          <text class="card-desc">1. 医生采集乳腺组织样本</text>
+          <text class="card-desc">2. 病理科医生进行样本处理</text>
+          <text class="card-desc">3. AI辅助诊断分析</text>
+          <text class="card-desc">4. 出具检测报告</text>
+        </view>
+      </view>
+      
+      <view class="section-card">
+        <view class="card-icon">⏰</view>
+        <view class="card-content">
+          <text class="card-title">检测时间</text>
+          <text class="card-desc">• 周一至周五：8:00-17:30</text>
+          <text class="card-desc">• 周六：9:00-12:00</text>
+          <text class="card-desc">• 周日及节假日：休息</text>
+        </view>
+      </view>
+      
+      <view class="section-card">
+        <view class="card-icon">💰</view>
+        <view class="card-content">
+          <text class="card-title">检测费用</text>
+          <text class="card-desc">• 常规病理检测：300-500元</text>
+          <text class="card-desc">• AI辅助诊断：100-200元</text>
+          <text class="card-desc">• 具体费用以医院公示为准</text>
+        </view>
+      </view>
+      
+      <view class="section-card">
+        <view class="card-icon">⚠️</view>
+        <view class="card-content">
+          <text class="card-title">注意事项</text>
+          <text class="card-desc">• 检测报告仅供参考，需由专业医生解读</text>
+          <text class="card-desc">• 如有异常结果，请及时咨询医生</text>
+          <text class="card-desc">• 检测结果保存期限为3个月</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

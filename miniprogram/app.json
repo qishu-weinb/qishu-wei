@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/login-select/login-select",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/upload/upload",
+    "pages/guide/guide",
+    "pages/knowledge/knowledge",
+    "pages/knowledge-detail/knowledge-detail",
+    "pages/result/result",
+    "pages/profile/profile",
+    "pages/help/help"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "乳腺癌检测",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f5f9ff",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <text class="page-title">检测诊断</text>
+    <view class="header-right"></view>
+  </view>
+  
+  <view class="main-section">
+    <view class="image-card">
+      <image class="diagnosis-image" src="/image/zhenduan.png" mode="aspectFit"></image>
+      <button class="upload-btn" bindtap="selectImage">上传病理图片</button>
+    </view>
+    
+    <view class="info-card">
+      <text class="info-title">AI智能诊断</text>
+      <text class="info-desc">基于深度学习的乳腺癌病例组织智能判断，辅助医生快速准确诊断</text>
+    </view>
+  </view>
+  
+  <view class="upload-preview" wx:if="!!imagePath">
+    <view class="preview-header">
+      <text class="preview-title">已选择图片</text>
+      <view class="preview-close" bindtap="clearImage">✕</view>
+    </view>
+    <image class="preview-image" src="{{imagePath}}" mode="widthFix"></image>
+    <button class="confirm-btn" bindtap="handleUpload">开始诊断</button>
+  </view>
+</view>

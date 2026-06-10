@@ -1,0 +1,105 @@
+page {
+  background-color: #f5f9ff;
+  min-height: 100%;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80rpx 32rpx 32rpx;
+  background-color: #fff;
+}
+
+.back-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+}
+
+.back-icon {
+  font-size: 48rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.page-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.header-right {
+  width: 64rpx;
+}
+
+.content {
+  padding: 32rpx;
+}
+
+.knowledge-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.article-card {
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.article-tag {
+  font-size: 24rpx;
+  color: rgb(30, 136, 229);
+  background-color: rgba(30, 136, 229, 0.1);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.article-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.article-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 16rpx;
+  line-height: 1.4;
+}
+
+.article-summary {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20rpx;
+}
+
+.article-footer {
+  text-align: right;
+}
+
+.article-read {
+  font-size: 26rpx;
+  color: rgb(30, 136, 229);
+}

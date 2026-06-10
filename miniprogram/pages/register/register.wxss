@@ -1,0 +1,93 @@
+page {
+  background: linear-gradient(180deg, #e3f2fd 0%, #f5f9ff 100%);
+  min-height: 100%;
+}
+
+.container {
+  padding: 60rpx 40rpx;
+  min-height: 100vh;
+}
+
+.header-section {
+  padding: 80rpx 0 60rpx;
+}
+
+.main-title {
+  display: block;
+  font-size: 52rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+  padding-bottom: 20rpx;
+}
+
+.title-line {
+  width: 80rpx;
+  height: 6rpx;
+  background: linear-gradient(90deg, #1e88e5, #42a5f5);
+  border-radius: 3rpx;
+}
+
+.form-card {
+  background-color: #fff;
+  border-radius: 32rpx;
+  padding: 60rpx 40rpx;
+  box-shadow: 0 10rpx 40rpx rgba(0, 0, 0, 0.08);
+}
+
+.form-item {
+  margin-bottom: 32rpx;
+}
+
+.form-input-wrapper {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  height: 96rpx;
+  border-width: 2rpx;
+  border-style: solid;
+  border-color: #e0e0e0;
+  border-radius: 48rpx;
+  padding: 0 32rpx;
+  font-size: 30rpx;
+  box-sizing: border-box;
+  background-color: #fafafa;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 24rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48rpx;
+  height: 48rpx;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.register-btn {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #1e88e5 0%, #42a5f5 100%);
+  color: #fff;
+  font-size: 34rpx;
+  font-weight: bold;
+  border-radius: 48rpx;
+  margin-top: 20rpx;
+  border: none;
+}
+
+.register-btn::after {
+  border: none;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 32rpx;
+}
+
+.login-link text {
+  font-size: 28rpx;
+  color: #666;
+}

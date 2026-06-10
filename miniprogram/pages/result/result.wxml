@@ -1,0 +1,93 @@
+<view class="container">
+  <view class="header-bar">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <text class="header-title">结果</text>
+    <text class="more-icon">···</text>
+  </view>
+  
+  <view class="result-section">
+    <view class="diagnosis-row">
+      <view class="diagnosis-item {{!hasCancer ? 'active' : ''}}">
+        <view class="diagnosis-icon">{{!hasCancer ? '✓' : ''}}</view>
+        <text class="diagnosis-label">良性</text>
+      </view>
+      <view class="diagnosis-item {{hasCancer ? 'active' : ''}}">
+        <view class="diagnosis-icon">{{hasCancer ? '✓' : ''}}</view>
+        <text class="diagnosis-label">恶性</text>
+      </view>
+    </view>
+    
+    <view class="confidence-section">
+      <view class="confidence-item">
+        <text class="confidence-value">{{confidence}}%</text>
+        <text class="confidence-label">置信度</text>
+      </view>
+      <button class="detail-btn">详情</button>
+    </view>
+    
+    <view class="summary-card">
+      <text class="summary-title">检测结果摘要</text>
+      <text class="summary-content">本次检测基于深度学习算法，对乳腺癌病理组织进行智能分析。检测结果显示{{hasCancer ? '存在恶性特征' : '未见明显异常' }}，建议结合临床症状和其他检查结果综合判断。</text>
+    </view>
+  </view>
+  
+  <view class="knowledge-section">
+    <text class="section-title">相关知识</text>
+    
+    <view class="knowledge-card">
+      <view class="knowledge-item">
+        <view class="knowledge-icon">📚</view>
+        <view class="knowledge-content">
+          <text class="knowledge-title">乳腺癌早期症状</text>
+          <text class="knowledge-desc">乳房肿块、乳头溢液、皮肤改变、乳头异常</text>
+        </view>
+      </view>
+      
+      <view class="knowledge-item">
+        <view class="knowledge-icon">📋</view>
+        <view class="knowledge-content">
+          <text class="knowledge-title">病理检查的重要性</text>
+          <text class="knowledge-desc">病理诊断是乳腺癌诊断的金标准，可明确肿瘤性质和类型</text>
+        </view>
+      </view>
+      
+      <view class="knowledge-item">
+        <view class="knowledge-icon">💡</view>
+        <view class="knowledge-content">
+          <text class="knowledge-title">AI辅助诊断优势</text>
+          <text class="knowledge-desc">提高诊断效率、减少人为误差、支持远程诊断</text>
+        </view>
+      </view>
+      
+      <view class="knowledge-item">
+        <view class="knowledge-icon">🏥</view>
+        <view class="knowledge-content">
+          <text class="knowledge-title">后续诊疗建议</text>
+          <text class="knowledge-desc">及时咨询专科医生，制定个性化治疗方案</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="accuracy-section">
+    <text class="section-title">模型准确度</text>
+    <view class="accuracy-card">
+      <view class="accuracy-item">
+        <text class="accuracy-value">98.5%</text>
+        <text class="accuracy-label">准确率</text>
+      </view>
+      <view class="accuracy-item">
+        <text class="accuracy-value">97.8%</text>
+        <text class="accuracy-label">灵敏度</text>
+      </view>
+      <view class="accuracy-item">
+        <text class="accuracy-value">99.2%</text>
+        <text class="accuracy-label">特异度</text>
+      </view>
+    </view>
+  </view>
+  
+  <button class="expert-btn" bindtap="goToExpert">专家解读</button>
+</view>
