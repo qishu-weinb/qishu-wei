@@ -69,15 +69,11 @@ const request = (options) => {
 const api = {
   login: (data) => request({ url: '/login', method: 'POST', data }),
   register: (data) => request({ url: '/register', method: 'POST', data }),
+  loginWechat: (data) => request({ url: '/login/wechat', method: 'POST', data }),
   logout: () => request({ url: '/logout', method: 'POST' }),
   getUserInfo: () => request({ url: '/user/info', method: 'GET' }),
   updateUserInfo: (data) => request({ url: '/user/info', method: 'PUT', data }),
-  uploadImage: (data) => request({ 
-    url: '/upload/image', 
-    method: 'POST', 
-    data,
-    header: { 'Content-Type': 'multipart/form-data' }
-  }),
+  getUserStats: () => request({ url: '/user/stats', method: 'GET' }),
   getDiagnosisResult: (imageId) => request({ url: `/diagnosis/${imageId}`, method: 'GET' }),
   getHistoryList: (params) => request({ url: '/history', method: 'GET', data: params }),
   deleteHistory: (id) => request({ url: `/history/${id}`, method: 'DELETE' }),
@@ -85,7 +81,48 @@ const api = {
   getKnowledgeDetail: (id) => request({ url: `/knowledge/${id}`, method: 'GET' })
 }
 
+const uploadDiagnosisImage = (filePath) => {
+  return new Promise((resolve, reject) => {
+    const token = wx.getStorageSync('userToken')
+    wx.uploadFile({
+      url: BASE_URL + '/upload/image',
+      filePath,
+      name: 'file',
+      header: {
+        'Authorization': token ? `Bearer ${token}` : ''
+      },
+      success: (res) => {
+        let responseData
+        try {
+          responseData = JSON.parse(res.data)
+        } catch (e) {
+          wx.showToast({ title: '响应解析失败', icon: 'none' })
+          reject(e)
+          return
+        }
+
+        if (responseData.code === 0 || responseData.code === 3001) {
+          resolve(responseData)
+        } else if (responseData.code === 401) {
+          wx.removeStorageSync('userToken')
+          wx.removeStorageSync('userInfo')
+          wx.redirectTo({ url: '/pages/login/login' })
+          reject(new Error(responseData.message || '登录已过期'))
+        } else {
+          wx.showToast({ title: responseData.message || '上传失败', icon: 'none' })
+          reject(new Error(responseData.message || '上传失败'))
+        }
+      },
+      fail: (err) => {
+        wx.showToast({ title: '网络异常', icon: 'none' })
+        reject(err)
+      }
+    })
+  })
+}
+
 module.exports = {
   request,
-  api
+  api,
+  uploadDiagnosisImage
 }

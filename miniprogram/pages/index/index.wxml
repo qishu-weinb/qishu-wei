@@ -64,29 +64,19 @@
         <text class="section-more">查看全部 ›</text>
       </view>
       <view class="history-list">
-        <view class="history-item">
-          <view class="history-icon benign">✅</view>
+        <view class="history-item" wx:for="{{historyList}}" wx:key="id">
+          <view class="history-icon {{item.iconClass}}">{{item.icon}}</view>
           <view class="history-info">
-            <text class="history-title">良性检测结果</text>
-            <text class="history-date">2024-01-15 14:30</text>
+            <text class="history-title">{{item.resultLabel}}</text>
+            <text class="history-date">{{item.createdAt}}</text>
           </view>
           <view class="history-arrow">›</view>
         </view>
-        <view class="history-item">
-          <view class="history-icon malignant">⚠️</view>
+        <view class="history-item" wx:if="{{historyList.length === 0}}">
           <view class="history-info">
-            <text class="history-title">恶性检测结果</text>
-            <text class="history-date">2024-01-10 09:15</text>
+            <text class="history-title">暂无检测历史</text>
+            <text class="history-date">上传病理图片后会显示在这里</text>
           </view>
-          <view class="history-arrow">›</view>
-        </view>
-        <view class="history-item">
-          <view class="history-icon benign">✅</view>
-          <view class="history-info">
-            <text class="history-title">良性检测结果</text>
-            <text class="history-date">2024-01-05 16:45</text>
-          </view>
-          <view class="history-arrow">›</view>
         </view>
       </view>
     </view>

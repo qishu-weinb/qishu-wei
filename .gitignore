@@ -12,3 +12,9 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+
+# Backend runtime data
+backend/data.db
+backend/uploads/
+__pycache__/
+*.pyc

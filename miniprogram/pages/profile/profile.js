@@ -1,21 +1,35 @@
+const { api } = require('../../util/request')
+
 Page({
   data: {
     userInfo: {
-      name: '用户昵称',
-      id: '12345678',
+      name: '',
+      id: '',
       avatar: ''
     },
     stats: {
-      totalTests: 12,
-      benignResults: 8,
-      suspiciousResults: 4
+      totalTests: 0,
+      benignResults: 0,
+      suspiciousResults: 0,
+      pendingResults: 0
     }
   },
 
   onLoad: function(options) {
     if (!wx.getStorageSync('userToken')) {
       wx.redirectTo({ url: '/pages/login-select/login-select' })
+      return
     }
+    this.loadProfile()
+  },
+
+  loadProfile: function() {
+    api.getUserInfo().then((userInfo) => {
+      this.setData({ userInfo: userInfo })
+    })
+    api.getUserStats().then((stats) => {
+      this.setData({ stats: stats })
+    })
   },
 
   goBack: function() {
@@ -52,8 +66,11 @@ Page({
       content: '确定要退出登录吗？',
       success: function(res) {
         if (res.confirm) {
-          wx.removeStorageSync('userToken')
-          wx.redirectTo({ url: '/pages/login-select/login-select' })
+          api.logout().finally(function() {
+            wx.removeStorageSync('userToken')
+            wx.removeStorageSync('userInfo')
+            wx.redirectTo({ url: '/pages/login-select/login-select' })
+          })
         }
       }
     })

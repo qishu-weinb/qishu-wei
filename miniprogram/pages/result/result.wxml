@@ -7,7 +7,7 @@
     <text class="more-icon">···</text>
   </view>
   
-  <view class="result-section">
+  <view class="result-section" wx:if="{{hasResult}}">
     <view class="diagnosis-row">
       <view class="diagnosis-item {{!hasCancer ? 'active' : ''}}">
         <view class="diagnosis-icon">{{!hasCancer ? '✓' : ''}}</view>
@@ -29,7 +29,15 @@
     
     <view class="summary-card">
       <text class="summary-title">检测结果摘要</text>
-      <text class="summary-content">本次检测基于深度学习算法，对乳腺癌病理组织进行智能分析。检测结果显示{{hasCancer ? '存在恶性特征' : '未见明显异常' }}，建议结合临床症状和其他检查结果综合判断。</text>
+      <text class="summary-content">{{summaryContent}}</text>
+    </view>
+  </view>
+
+  <view class="result-section" wx:else>
+    <view class="summary-card">
+      <text class="summary-title">暂不能生成诊断结果</text>
+      <text class="summary-content">{{summaryContent}}</text>
+      <text class="summary-content">{{suggestion}}</text>
     </view>
   </view>
   
@@ -71,23 +79,6 @@
     </view>
   </view>
   
-  <view class="accuracy-section">
-    <text class="section-title">模型准确度</text>
-    <view class="accuracy-card">
-      <view class="accuracy-item">
-        <text class="accuracy-value">98.5%</text>
-        <text class="accuracy-label">准确率</text>
-      </view>
-      <view class="accuracy-item">
-        <text class="accuracy-value">97.8%</text>
-        <text class="accuracy-label">灵敏度</text>
-      </view>
-      <view class="accuracy-item">
-        <text class="accuracy-value">99.2%</text>
-        <text class="accuracy-label">特异度</text>
-      </view>
-    </view>
-  </view>
-  
-  <button class="expert-btn" bindtap="goToExpert">专家解读</button>
+  <button class="expert-btn" wx:if="{{hasResult}}" bindtap="goToExpert">专家解读</button>
+  <button class="expert-btn" wx:else bindtap="goToHome">返回首页</button>
 </view>

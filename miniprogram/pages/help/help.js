@@ -13,7 +13,8 @@ Page({
     wx.navigateBack()
   },
 
-  toggleFaq: function(index) {
+  toggleFaq: function(e) {
+    var index = Number(e.currentTarget.dataset.index)
     this.setData({
       expandedIndex: this.data.expandedIndex === index ? -1 : index
     })

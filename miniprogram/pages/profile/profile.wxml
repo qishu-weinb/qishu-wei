@@ -8,8 +8,8 @@
         <text class="avatar-text">👤</text>
       </view>
       <view class="user-detail">
-        <text class="user-name">用户昵称</text>
-        <text class="user-id">ID: 12345678</text>
+        <text class="user-name">{{userInfo.name}}</text>
+        <text class="user-id">ID: {{userInfo.id}}</text>
       </view>
     </view>
     <view class="edit-btn">
@@ -19,18 +19,18 @@
   
   <view class="stats-section">
     <view class="stat-item">
-      <text class="stat-value">12</text>
+      <text class="stat-value">{{stats.totalTests}}</text>
       <text class="stat-label">检测次数</text>
     </view>
     <view class="stat-divider"></view>
     <view class="stat-item">
-      <text class="stat-value">8</text>
+      <text class="stat-value">{{stats.benignResults}}</text>
       <text class="stat-label">良性结果</text>
     </view>
     <view class="stat-divider"></view>
     <view class="stat-item">
-      <text class="stat-value">4</text>
-      <text class="stat-label">可疑结果</text>
+      <text class="stat-value">{{stats.pendingResults}}</text>
+      <text class="stat-label">待诊断</text>
     </view>
   </view>
   

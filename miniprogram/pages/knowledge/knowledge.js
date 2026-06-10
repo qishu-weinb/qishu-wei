@@ -1,4 +1,20 @@
+const { api } = require('../../util/request')
+
 Page({
+  data: {
+    articles: []
+  },
+
+  onLoad: function() {
+    this.loadArticles()
+  },
+
+  loadArticles: function() {
+    api.getKnowledgeList({ page: 1, size: 20 }).then((data) => {
+      this.setData({ articles: data.list || [] })
+    })
+  },
+
   goBack: function() {
     wx.navigateBack()
   },

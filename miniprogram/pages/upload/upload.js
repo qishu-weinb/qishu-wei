@@ -1,3 +1,5 @@
+const { uploadDiagnosisImage } = require('../../util/request')
+
 Page({
   data: {
     imagePath: ''
@@ -34,20 +36,27 @@ Page({
       wx.showToast({ title: '请先选择图片', icon: 'none' })
       return
     }
-    
-    var that = this
     wx.showLoading({ title: '检测中...' })
-    
-    setTimeout(function() {
+
+    uploadDiagnosisImage(this.data.imagePath).then(function(response) {
       wx.hideLoading()
-      var mockData = {
-        hasCancer: Math.random() > 0.5,
-        confidence: Math.floor(Math.random() * 30) + 70,
-        detectTime: new Date().toLocaleString('zh-CN')
+      var data = response.data || {}
+      var resultData = {
+        status: data.status || 'completed',
+        recordId: data.recordId || data.id || '',
+        imageId: data.imageId || '',
+        imageUrl: data.imageUrl || '',
+        hasCancer: data.result === 'malignant',
+        confidence: data.confidence || 0,
+        analysis: data.analysis || '',
+        suggestion: data.suggestion || '',
+        message: response.message || ''
       }
       wx.redirectTo({
-        url: '/pages/result/result?data=' + encodeURIComponent(JSON.stringify(mockData))
+        url: '/pages/result/result?data=' + encodeURIComponent(JSON.stringify(resultData))
       })
-    }, 1500)
+    }).catch(function() {
+      wx.hideLoading()
+    })
   }
 })

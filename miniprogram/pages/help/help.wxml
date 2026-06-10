@@ -20,7 +20,7 @@
   <view class="faq-section">
     <text class="section-title">常见问题</text>
     <view class="faq-list">
-      <view class="faq-item" bindtap="toggleFaq(0)">
+      <view class="faq-item" bindtap="toggleFaq" data-index="0">
         <view class="faq-header">
           <text class="faq-question">如何上传病理图片？</text>
           <text class="faq-arrow">+</text>
@@ -30,7 +30,7 @@
         </view>
       </view>
       
-      <view class="faq-item" bindtap="toggleFaq(1)">
+      <view class="faq-item" bindtap="toggleFaq" data-index="1">
         <view class="faq-header">
           <text class="faq-question">检测结果需要多久？</text>
           <text class="faq-arrow">+</text>
@@ -40,7 +40,7 @@
         </view>
       </view>
       
-      <view class="faq-item" bindtap="toggleFaq(2)">
+      <view class="faq-item" bindtap="toggleFaq" data-index="2">
         <view class="faq-header">
           <text class="faq-question">什么是乳腺癌病理组织检测？</text>
           <text class="faq-arrow">+</text>
@@ -50,7 +50,7 @@
         </view>
       </view>
       
-      <view class="faq-item" bindtap="toggleFaq(3)">
+      <view class="faq-item" bindtap="toggleFaq" data-index="3">
         <view class="faq-header">
           <text class="faq-question">检测结果如何解读？</text>
           <text class="faq-arrow">+</text>
@@ -60,7 +60,7 @@
         </view>
       </view>
       
-      <view class="faq-item" bindtap="toggleFaq(4)">
+      <view class="faq-item" bindtap="toggleFaq" data-index="4">
         <view class="faq-header">
           <text class="faq-question">如何保护我的隐私？</text>
           <text class="faq-arrow">+</text>

@@ -9,52 +9,20 @@
   
   <view class="content">
     <view class="knowledge-section">
-      <view class="article-card" bindtap="goToDetail" data-id="1">
+      <view class="article-card" wx:for="{{articles}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
         <view class="article-header">
-          <text class="article-tag">预防知识</text>
-          <text class="article-date">2024-01-15</text>
+          <text class="article-tag">{{item.tag}}</text>
+          <text class="article-date">{{item.createdAt}}</text>
         </view>
-        <text class="article-title">乳腺癌的早期症状与自我检查方法</text>
-        <text class="article-summary">乳腺癌是女性常见的恶性肿瘤之一，早期发现和治疗对提高生存率至关重要。了解乳腺癌的早期症状，掌握正确的自我检查方法...</text>
+        <text class="article-title">{{item.title}}</text>
+        <text class="article-summary">{{item.summary}}</text>
         <view class="article-footer">
           <text class="article-read">阅读全文 ›</text>
         </view>
       </view>
-      
-      <view class="article-card" bindtap="goToDetail" data-id="2">
-        <view class="article-header">
-          <text class="article-tag">饮食健康</text>
-          <text class="article-date">2024-01-10</text>
-        </view>
-        <text class="article-title">预防乳腺癌的饮食建议</text>
-        <text class="article-summary">合理的饮食结构对于预防乳腺癌具有重要意义。研究表明，多吃蔬菜水果、全谷物和豆类，减少高脂肪、高糖分食物的摄入...</text>
-        <view class="article-footer">
-          <text class="article-read">阅读全文 ›</text>
-        </view>
-      </view>
-      
-      <view class="article-card" bindtap="goToDetail" data-id="3">
-        <view class="article-header">
-          <text class="article-tag">运动保健</text>
-          <text class="article-date">2024-01-05</text>
-        </view>
-        <text class="article-title">适度运动对乳腺健康的重要性</text>
-        <text class="article-summary">规律的体育锻炼不仅能增强体质，还能有效降低乳腺癌的发病风险。建议每周进行至少150分钟的中等强度有氧运动...</text>
-        <view class="article-footer">
-          <text class="article-read">阅读全文 ›</text>
-        </view>
-      </view>
-      
-      <view class="article-card" bindtap="goToDetail" data-id="4">
-        <view class="article-header">
-          <text class="article-tag">医学科普</text>
-          <text class="article-date">2024-01-01</text>
-        </view>
-        <text class="article-title">乳腺癌筛查的重要性及方法</text>
-        <text class="article-summary">定期进行乳腺癌筛查是早期发现疾病的关键。常见的筛查方法包括乳腺超声、乳腺X线摄影（钼靶）等...</text>
-        <view class="article-footer">
-          <text class="article-read">阅读全文 ›</text>
-        </view>
+      <view class="article-card" wx:if="{{articles.length === 0}}">
+        <text class="article-title">暂无健康知识</text>
+        <text class="article-summary">后端服务启动后会初始化健康知识内容。</text>
       </view>
     </view>
   </view>

@@ -1,3 +1,5 @@
+const { api } = require('../../util/request')
+
 Page({
   goToPhoneLogin: function() {
     wx.navigateTo({
@@ -11,19 +13,20 @@ Page({
       icon: 'loading',
       duration: 1500
     })
-    
-    setTimeout(() => {
-      wx.setStorageSync('userToken', 'mock_wechat_token')
-      wx.setStorageSync('userInfo', { name: '微信用户', avatar: '' })
-      wx.removeStorageSync('imagePath')
-      wx.removeStorageSync('showPreview')
-      wx.removeStorageSync('tempImage')
-      wx.clearStorageSync()
-      wx.setStorageSync('userToken', 'mock_wechat_token')
-      wx.setStorageSync('userInfo', { name: '微信用户', avatar: '' })
-      wx.redirectTo({
-        url: '/pages/index/index'
-      })
-    }, 1500)
+
+    wx.login({
+      success: (res) => {
+        api.loginWechat({ code: res.code }).then((data) => {
+          wx.setStorageSync('userToken', data.token)
+          wx.setStorageSync('userInfo', data.userInfo)
+          wx.redirectTo({
+            url: '/pages/index/index'
+          })
+        })
+      },
+      fail: () => {
+        wx.showToast({ title: '微信登录失败', icon: 'none' })
+      }
+    })
   }
 })

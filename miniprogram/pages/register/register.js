@@ -1,6 +1,8 @@
+const { api } = require('../../util/request')
+
 Page({
   data: {
-    username: '',
+    phone: '',
     password: '',
     confirmPassword: '',
     showPassword: false,
@@ -9,7 +11,7 @@ Page({
   },
 
   onUsernameInput: function(e) {
-    this.setData({ username: e.detail.value })
+    this.setData({ phone: e.detail.value })
   },
 
   onPasswordInput: function(e) {
@@ -29,12 +31,11 @@ Page({
   },
 
   handleRegister: function() {
-    var that = this
-    var username = this.data.username
+    var phone = this.data.phone
     var password = this.data.password
     var confirmPassword = this.data.confirmPassword
     
-    if (!username || !password || !confirmPassword) {
+    if (!phone || !password || !confirmPassword) {
       wx.showToast({ title: '请填写完整信息', icon: 'none' })
       return
     }
@@ -46,29 +47,17 @@ Page({
 
     this.setData({ loading: true })
 
-    wx.request({
-      url: 'http://localhost:5000/api/register',
-      method: 'POST',
-      data: { username: username, password: password },
-      success: function(res) {
-        if (res.data.code === 0) {
-          wx.showToast({ title: '注册成功', icon: 'success' })
-          setTimeout(function() {
-            wx.navigateBack()
-          }, 1500)
-        } else {
-          wx.showToast({ title: res.data.message || '注册失败', icon: 'none' })
-        }
-      },
-      fail: function() {
-        wx.showToast({ title: '注册成功(模拟)', icon: 'success' })
-        setTimeout(function() {
-          wx.navigateBack()
-        }, 1500)
-      },
-      complete: function() {
-        that.setData({ loading: false })
-      }
+    api.register({
+      phone: phone,
+      password: password,
+      confirmPassword: confirmPassword
+    }).then(() => {
+      wx.showToast({ title: '注册成功', icon: 'success' })
+      setTimeout(function() {
+        wx.navigateBack()
+      }, 1500)
+    }).finally(() => {
+      this.setData({ loading: false })
     })
   },
 

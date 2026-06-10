@@ -1,3 +1,5 @@
+const { api } = require('../../util/request')
+
 Page({
   data: {
     phone: '',
@@ -33,14 +35,19 @@ Page({
     }
     
     this.setData({ loading: true })
-    
-    setTimeout(() => {
-      wx.setStorageSync('userToken', 'mock_token')
-      wx.setStorageSync('userInfo', { name: '用户', avatar: '' })
+
+    api.login({
+      phone: this.data.phone,
+      password: this.data.password
+    }).then((data) => {
+      wx.setStorageSync('userToken', data.token)
+      wx.setStorageSync('userInfo', data.userInfo)
       wx.redirectTo({
         url: '/pages/index/index'
       })
-    }, 500)
+    }).finally(() => {
+      this.setData({ loading: false })
+    })
   },
 
   goToForget: function() {

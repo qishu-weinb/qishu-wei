@@ -1,6 +1,9 @@
+const { api } = require('../../util/request')
+
 Page({
   data: {
-    loading: false
+    loading: false,
+    historyList: []
   },
 
   goBack: function() {
@@ -14,7 +17,23 @@ Page({
   onLoad: function(options) {
     if (!wx.getStorageSync('userToken')) {
       wx.redirectTo({ url: '/pages/login-select/login-select' })
+      return
     }
+    this.loadRecentHistory()
+  },
+
+  loadRecentHistory: function() {
+    api.getHistoryList({ page: 1, size: 3 }).then((data) => {
+      var list = (data.list || []).map(function(item) {
+        var pending = item.status === 'model_not_configured'
+        return {
+          ...item,
+          icon: pending ? '⏳' : (item.result === 'malignant' ? '⚠️' : '✅'),
+          iconClass: item.result === 'malignant' ? 'malignant' : 'benign'
+        }
+      })
+      this.setData({ historyList: list })
+    })
   },
 
   selectImage: function() {
@@ -24,7 +43,8 @@ Page({
   },
 
   goToHistory: function() {
-    wx.showToast({ title: '历史记录功能开发中', icon: 'none' })
+    this.loadRecentHistory()
+    wx.showToast({ title: '已刷新历史记录', icon: 'none' })
   },
 
   goToGuide: function() {
@@ -64,10 +84,12 @@ Page({
   },
 
   handleLogout: function() {
-    wx.removeStorageSync('userToken')
-    wx.removeStorageSync('userInfo')
-    wx.redirectTo({
-      url: '/pages/login/login'
+    api.logout().finally(() => {
+      wx.removeStorageSync('userToken')
+      wx.removeStorageSync('userInfo')
+      wx.redirectTo({
+        url: '/pages/login/login'
+      })
     })
   }
 })
