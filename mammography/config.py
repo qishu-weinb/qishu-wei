@@ -17,11 +17,16 @@ PROJECT_DIR = BASE_DIR.parent
 DATA_ROOT = PROJECT_DIR / "data" / "mammography"
 PATIENTS_DIR = DATA_ROOT / "patients"
 
-# VinDr-Mammo 数据路径 (下载后自动填充)
+# 各数据集路径
+CBIS_DDSM_DIR = DATA_ROOT          # CBIS-DDSM 在根目录下 (csv/ + jpeg/)
 VINDR_ROOT = DATA_ROOT / "vindr_mammo"
 VINDR_IMAGES_DIR = VINDR_ROOT / "images"
 VINDR_FINDING_CSV = VINDR_ROOT / "finding_annotations.csv"
 VINDR_BREAST_CSV = VINDR_ROOT / "breast-level_annotations.csv"
+MIAS_DIR = DATA_ROOT / "mias"
+DMID_DIR = DATA_ROOT / "dmid"
+KAU_BCMD_DIR = DATA_ROOT / "kau-bcmd"
+CSAW_CC_DIR = DATA_ROOT / "csaw-cc"
 
 # 预处理后的训练数据
 YOLO_DATASET_DIR = DATA_ROOT / "yolo_dataset"
