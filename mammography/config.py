@@ -2,7 +2,7 @@
 乳腺钼靶诊断模块 - 配置文件
 
 定义数据路径、模型超参数、类别映射等全局常量。
-数据集: CBIS-DDSM (DICOM + CSV)
+支持数据集: CBIS-DDSM, VinDr-Mammo
 """
 
 import os
@@ -14,8 +14,18 @@ BASE_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = BASE_DIR.parent
 
 # 数据目录
-DATA_ROOT = Path(r"d:\软件下载\TRAE\rxaa\data\multimodal\mammography")
+DATA_ROOT = PROJECT_DIR / "data" / "mammography"
 PATIENTS_DIR = DATA_ROOT / "patients"
+
+# VinDr-Mammo 数据路径 (下载后自动填充)
+VINDR_ROOT = DATA_ROOT / "vindr_mammo"
+VINDR_IMAGES_DIR = VINDR_ROOT / "images"
+VINDR_FINDING_CSV = VINDR_ROOT / "finding_annotations.csv"
+VINDR_BREAST_CSV = VINDR_ROOT / "breast-level_annotations.csv"
+
+# 预处理后的训练数据
+YOLO_DATASET_DIR = DATA_ROOT / "yolo_dataset"
+CLS_DATASET_DIR = DATA_ROOT / "classification_dataset"
 
 # CBIS-DDSM CSV 标注文件
 CSV_FILES = {

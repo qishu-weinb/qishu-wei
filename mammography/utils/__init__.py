@@ -15,6 +15,7 @@ from .preprocessing import (
     suppress_background,
     multi_window_enhancement,
 )
+from .vindr_loader import VinDrDataset, prepare_vindr_for_training
 from .visualization import (
     visualize_diagnosis,
     create_diagnosis_report,
@@ -39,6 +40,9 @@ __all__ = [
     "remove_pectoral_muscle",
     "suppress_background",
     "multi_window_enhancement",
+    # vindr_loader
+    "VinDrDataset",
+    "prepare_vindr_for_training",
     # visualization
     "visualize_diagnosis",
     "create_diagnosis_report",
