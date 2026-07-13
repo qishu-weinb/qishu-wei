@@ -8,7 +8,7 @@ DICOM 工具函数
 """
 
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 import numpy as np
 import pydicom
@@ -84,7 +84,7 @@ def find_dicom_files(
     directory: str,
     pattern: str = "*.dcm",
     recursive: bool = True,
-) -> list[Path]:
+) -> List[Path]:
     """
     查找目录下的所有DICOM文件
 
