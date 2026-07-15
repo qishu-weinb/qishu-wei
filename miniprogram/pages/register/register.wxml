@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="header-section">
+    <text class="main-title">医疗AI小程序</text>
+    <view class="title-line"></view>
+  </view>
+  
+  <view class="form-card">
+    <view class="form-item">
+      <input class="form-input" type="number" placeholder="手机号" bindinput="onUsernameInput" value="{{phone}}" />
+    </view>
+    
+    <view class="form-item">
+      <view class="form-input-wrapper">
+        <input class="form-input" type="{{showPassword ? 'text' : 'password'}}" placeholder="设置密码" bindinput="onPasswordInput" value="{{password}}" />
+        <image class="password-toggle" bindtap="togglePassword" src="{{showPassword ? '/image/eye.png' : '/image/eye_close.png'}}" />
+      </view>
+    </view>
+    
+    <view class="form-item">
+      <view class="form-input-wrapper">
+        <input class="form-input" type="{{showConfirmPassword ? 'text' : 'password'}}" placeholder="再次输入密码" bindinput="onConfirmPasswordInput" value="{{confirmPassword}}" />
+        <image class="password-toggle" bindtap="toggleConfirmPassword" src="{{showConfirmPassword ? '/image/eye.png' : '/image/eye_close.png'}}" />
+      </view>
+    </view>
+    
+    <button class="register-btn" bindtap="handleRegister" loading="{{loading}}">{{loading ? '注册中...' : '注册'}}</button>
+    
+    <view class="login-link">
+      <text bindtap="goToLogin">已有账号？立即登录</text>
+    </view>
+  </view>
+</view>

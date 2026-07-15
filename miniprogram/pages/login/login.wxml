@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="header">
+    <text class="back-icon" bindtap="goBack">‹</text>
+    <text class="header-title">登录</text>
+    <view class="header-right"></view>
+  </view>
+  
+  <view class="form-card">
+    <view class="form-item">
+      <input class="form-input" type="number" placeholder="请输入手机号" bindinput="onPhoneInput" value="{{phone}}" />
+    </view>
+    
+    <view class="form-item">
+      <view class="form-input-wrapper">
+        <input class="form-input" type="{{showPassword ? 'text' : 'password'}}" placeholder="请输入密码" bindinput="onPasswordInput" value="{{password}}" />
+        <image class="password-toggle" bindtap="togglePassword" src="{{showPassword ? '/image/eye.png' : '/image/eye_close.png'}}" />
+      </view>
+    </view>
+    
+    <button class="login-btn" bindtap="handleLogin" loading="{{loading}}">{{loading ? '登录中...' : '登 录'}}</button>
+    
+    <view class="form-footer">
+      <text class="forgot-pwd" bindtap="goToForget">忘记密码？</text>
+      <text class="register-link" bindtap="goToRegister">立即注册</text>
+    </view>
+  </view>
+</view>

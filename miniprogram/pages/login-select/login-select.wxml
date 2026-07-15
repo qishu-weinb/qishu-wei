@@ -1,0 +1,15 @@
+<view class="container">
+  <view class="bg-section">
+    <image class="bg-image" src="/image/shouye.png" mode="aspectFill" />
+    <view class="bg-overlay"></view>
+  </view>
+  
+  <view class="content-section">
+    <button class="login-btn phone" bindtap="goToPhoneLogin">手机号登录</button>
+    <button class="login-btn wechat" bindtap="goToWechatLogin">
+      <image class="wechat-icon" src="/image/weixin.png" />
+      <text class="wechat-text">微信快捷登录</text>
+    </button>
+    <text class="agreement-text">登录即表示同意《用户服务协议》和《隐私政策》</text>
+  </view>
+</view>

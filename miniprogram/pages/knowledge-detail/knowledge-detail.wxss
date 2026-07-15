@@ -1,0 +1,92 @@
+page {
+  background-color: #f5f9ff;
+  min-height: 100%;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80rpx 32rpx 32rpx;
+  background-color: #fff;
+}
+
+.back-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+}
+
+.back-icon {
+  font-size: 48rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.page-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+.header-right {
+  width: 64rpx;
+}
+
+.content {
+  padding: 32rpx;
+}
+
+.article-detail {
+  background-color: #fff;
+  border-radius: 24rpx;
+  padding: 36rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.article-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.article-tag {
+  font-size: 24rpx;
+  color: rgb(30, 136, 229);
+  background-color: rgba(30, 136, 229, 0.1);
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.article-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.article-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 32rpx;
+  line-height: 1.4;
+}
+
+.article-content {
+  padding: 16rpx 0;
+}
+
+.content-text {
+  font-size: 30rpx;
+  color: #333;
+  line-height: 2;
+}

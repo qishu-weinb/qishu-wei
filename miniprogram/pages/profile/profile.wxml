@@ -1,0 +1,85 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="user-info">
+      <view class="avatar">
+        <text class="avatar-text">👤</text>
+      </view>
+      <view class="user-detail">
+        <text class="user-name">{{userInfo.name}}</text>
+        <text class="user-id">ID: {{userInfo.id}}</text>
+      </view>
+    </view>
+    <view class="edit-btn">
+      <text class="edit-icon">✏️</text>
+    </view>
+  </view>
+  
+  <view class="stats-section">
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalTests}}</text>
+      <text class="stat-label">检测次数</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.benignResults}}</text>
+      <text class="stat-label">良性结果</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.pendingResults}}</text>
+      <text class="stat-label">待诊断</text>
+    </view>
+  </view>
+  
+  <view class="menu-section">
+    <view class="menu-item" bindtap="goToHistory">
+      <view class="menu-icon-wrap blue">
+        <text class="menu-icon">📋</text>
+      </view>
+      <text class="menu-text">检测历史</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goToReport">
+      <view class="menu-icon-wrap orange">
+        <text class="menu-icon">📊</text>
+      </view>
+      <text class="menu-text">检测报告</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goToFavorite">
+      <view class="menu-icon-wrap pink">
+        <text class="menu-icon">❤️</text>
+      </view>
+      <text class="menu-text">收藏夹</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goToSettings">
+      <view class="menu-icon-wrap cyan">
+        <text class="menu-icon">⚙️</text>
+      </view>
+      <text class="menu-text">系统设置</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goToFeedback">
+      <view class="menu-icon-wrap green">
+        <text class="menu-icon">💬</text>
+      </view>
+      <text class="menu-text">意见反馈</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goToAbout">
+      <view class="menu-icon-wrap purple">
+        <text class="menu-icon">ℹ️</text>
+      </view>
+      <text class="menu-text">关于我们</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+  
+  <view class="logout-section">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
+  </view>
+</view>

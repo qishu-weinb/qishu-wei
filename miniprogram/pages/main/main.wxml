@@ -1,0 +1,108 @@
+<view class="container">
+  <view class="header-section">
+    <view class="search-bar">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="请输入关键词搜索" />
+      <text class="search-action">💬</text>
+    </view>
+    
+    <view class="banner-section">
+      <view class="banner-content">
+        <text class="banner-title">医疗统计导航</text>
+        <text class="banner-desc">组织学分级标准, 免疫组化</text>
+        <text class="banner-desc">组织学类型判断, 预后与管理</text>
+        <button class="banner-btn" bindtap="selectImage">开始诊断</button>
+      </view>
+      <image class="banner-image" src="/image/daohang.png" mode="aspectFit" />
+    </view>
+  </view>
+  
+  <view class="content-section">
+    <view class="function-grid">
+      <view class="function-item" bindtap="goToHistory">
+        <view class="function-icon-wrap blue">
+          <text class="function-icon">📋</text>
+        </view>
+        <text class="function-name">历史记录</text>
+      </view>
+      <view class="function-item" bindtap="goToGuide">
+        <view class="function-icon-wrap orange">
+          <text class="function-icon">📖</text>
+        </view>
+        <text class="function-name">检测指南</text>
+      </view>
+      <view class="function-item" bindtap="goToKnowledge">
+        <view class="function-icon-wrap blue-light">
+          <text class="function-icon">💡</text>
+        </view>
+        <text class="function-name">健康知识</text>
+      </view>
+      <view class="function-item" bindtap="goToAbout">
+        <view class="function-icon-wrap cyan-dark">
+          <text class="function-icon">i</text>
+        </view>
+        <text class="function-name">关于我们</text>
+      </view>
+      <view class="function-item" bindtap="goToHelp">
+        <view class="function-icon-wrap blue-dark">
+          <text class="function-icon">?</text>
+        </view>
+        <text class="function-name">帮助中心</text>
+      </view>
+      <view class="function-item" bindtap="goToProfile">
+        <view class="function-icon-wrap blue-light">
+          <text class="function-icon">👤</text>
+        </view>
+        <text class="function-name">个人中心</text>
+      </view>
+    </view>
+    
+    <view class="history-section">
+      <view class="section-header">
+        <text class="section-title">历史记录</text>
+        <text class="section-more">查看全部 ›</text>
+      </view>
+      <view class="history-list">
+        <view class="history-item">
+          <view class="history-icon benign">✅</view>
+          <view class="history-info">
+            <text class="history-title">良性检测结果</text>
+            <text class="history-date">2024-01-15 14:30</text>
+          </view>
+          <view class="history-arrow">›</view>
+        </view>
+        <view class="history-item">
+          <view class="history-icon malignant">⚠️</view>
+          <view class="history-info">
+            <text class="history-title">恶性检测结果</text>
+            <text class="history-date">2024-01-10 09:15</text>
+          </view>
+          <view class="history-arrow">›</view>
+        </view>
+        <view class="history-item">
+          <view class="history-icon benign">✅</view>
+          <view class="history-info">
+            <text class="history-title">良性检测结果</text>
+            <text class="history-date">2024-01-05 16:45</text>
+          </view>
+          <view class="history-arrow">›</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="tab-bar">
+    <view class="tab-item active">
+      <text class="tab-icon">🏠</text>
+      <text class="tab-name">首页</text>
+    </view>
+    <view class="tab-item" bindtap="goToScan">
+      <text class="tab-icon">📷</text>
+      <text class="tab-name">检测</text>
+    </view>
+    <view class="tab-item" bindtap="goToProfile">
+      <text class="tab-icon">👤</text>
+      <text class="tab-name">我的</text>
+    </view>
+  </view>
+</view>

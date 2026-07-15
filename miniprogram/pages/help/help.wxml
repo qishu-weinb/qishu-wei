@@ -1,0 +1,101 @@
+<view class="container">
+  <view class="header-section">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <view class="header-icon">
+      <text class="icon-text">❓</text>
+    </view>
+    <text class="header-title">帮助中心</text>
+    <text class="header-desc">有任何问题？我们来帮您解答</text>
+  </view>
+  
+  <view class="search-section">
+    <view class="search-bar">
+      <text class="search-icon">🔍</text>
+      <input class="search-input" placeholder="搜索帮助问题" />
+    </view>
+  </view>
+  
+  <view class="faq-section">
+    <text class="section-title">常见问题</text>
+    <view class="faq-list">
+      <view class="faq-item" bindtap="toggleFaq" data-index="0">
+        <view class="faq-header">
+          <text class="faq-question">如何上传病理图片？</text>
+          <text class="faq-arrow">+</text>
+        </view>
+        <view class="faq-content" wx:if="expandedIndex === 0">
+          <text class="faq-answer">在首页点击「开始诊断」或底部导航「检测」进入检测页面，点击「上传病理图片」按钮，选择从相册或相机拍摄图片即可。</text>
+        </view>
+      </view>
+      
+      <view class="faq-item" bindtap="toggleFaq" data-index="1">
+        <view class="faq-header">
+          <text class="faq-question">检测结果需要多久？</text>
+          <text class="faq-arrow">+</text>
+        </view>
+        <view class="faq-content" wx:if="expandedIndex === 1">
+          <text class="faq-answer">检测通常需要1-2分钟完成。我们的AI模型会对病理图片进行深度分析，确保检测结果的准确性。</text>
+        </view>
+      </view>
+      
+      <view class="faq-item" bindtap="toggleFaq" data-index="2">
+        <view class="faq-header">
+          <text class="faq-question">什么是乳腺癌病理组织检测？</text>
+          <text class="faq-arrow">+</text>
+        </view>
+        <view class="faq-content" wx:if="expandedIndex === 2">
+          <text class="faq-answer">乳腺癌病理组织检测是通过显微镜观察乳腺组织样本，判断是否存在癌细胞及其类型、分级等信息，是诊断乳腺癌的金标准。</text>
+        </view>
+      </view>
+      
+      <view class="faq-item" bindtap="toggleFaq" data-index="3">
+        <view class="faq-header">
+          <text class="faq-question">检测结果如何解读？</text>
+          <text class="faq-arrow">+</text>
+        </view>
+        <view class="faq-content" wx:if="expandedIndex === 3">
+          <text class="faq-answer">检测结果分为良性和可疑两种。良性表示组织正常或良性病变；可疑表示可能存在恶性特征，建议及时咨询医生进行进一步检查。</text>
+        </view>
+      </view>
+      
+      <view class="faq-item" bindtap="toggleFaq" data-index="4">
+        <view class="faq-header">
+          <text class="faq-question">如何保护我的隐私？</text>
+          <text class="faq-arrow">+</text>
+        </view>
+        <view class="faq-content" wx:if="expandedIndex === 4">
+          <text class="faq-answer">我们采用端到端加密技术保护您的数据安全。您的检测图片和结果仅用于诊断分析，不会用于其他用途。</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="contact-section">
+    <text class="section-title">联系我们</text>
+    <view class="contact-card">
+      <view class="contact-item">
+        <view class="contact-icon phone">📞</view>
+        <view class="contact-info">
+          <text class="contact-label">客服热线</text>
+          <text class="contact-value">400-123-4567</text>
+        </view>
+      </view>
+      <view class="contact-item">
+        <view class="contact-icon mail">📧</view>
+        <view class="contact-info">
+          <text class="contact-label">电子邮箱</text>
+          <text class="contact-value">support@example.com</text>
+        </view>
+      </view>
+      <view class="contact-item">
+        <view class="contact-icon time">🕐</view>
+        <view class="contact-info">
+          <text class="contact-label">服务时间</text>
+          <text class="contact-value">周一至周日 9:00-21:00</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

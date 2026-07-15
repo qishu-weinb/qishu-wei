@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+    </view>
+    <text class="page-title">文章详情</text>
+    <view class="header-right"></view>
+  </view>
+  
+  <view class="content">
+    <view class="article-detail">
+      <view class="article-meta">
+        <text class="article-tag">{{article.tag}}</text>
+        <text class="article-date">{{article.date}}</text>
+      </view>
+      <text class="article-title">{{article.title}}</text>
+      <view class="article-content">
+        <text class="content-text">{{article.content}}</text>
+      </view>
+    </view>
+  </view>
+</view>
