@@ -1,4 +1,6 @@
+// 微信开发者工具本地调试可使用 localhost；真机/上线时改成已备案的 HTTPS 域名。
 const BASE_URL = 'http://localhost:5000/api'
+const ASSET_BASE_URL = BASE_URL.replace(/\/api$/, '')
 
 const request = (options) => {
   const {
@@ -101,7 +103,7 @@ const uploadDiagnosisImage = (filePath) => {
           return
         }
 
-        if (responseData.code === 0 || responseData.code === 3001) {
+        if (responseData.code === 0) {
           resolve(responseData)
         } else if (responseData.code === 401) {
           wx.removeStorageSync('userToken')
@@ -122,7 +124,13 @@ const uploadDiagnosisImage = (filePath) => {
 }
 
 module.exports = {
+  BASE_URL,
+  ASSET_BASE_URL,
   request,
   api,
-  uploadDiagnosisImage
+  uploadDiagnosisImage,
+  getAssetUrl: (path) => {
+    if (!path) return ''
+    return /^https?:\/\//.test(path) ? path : ASSET_BASE_URL + path
+  }
 }

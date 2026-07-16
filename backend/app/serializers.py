@@ -24,6 +24,8 @@ def record_item(record: DiagnosisRecord):
         result_label = "良性检测结果"
     elif record.result == "malignant":
         result_label = "恶性检测结果"
+    elif record.result == "normal":
+        result_label = "未见明显病灶"
     return {
         "id": record.id,
         "imageId": record.image_id,
@@ -36,6 +38,7 @@ def record_item(record: DiagnosisRecord):
         "confidenceRaw": record.confidence,
         "analysis": record.analysis,
         "suggestion": record.suggestion,
+        "modelVersion": record.model_version,
         "createdAt": fmt(record.created_at),
     }
 

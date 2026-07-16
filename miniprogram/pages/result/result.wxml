@@ -8,13 +8,22 @@
   </view>
   
   <view class="result-section" wx:if="{{hasResult}}">
+    <view class="source-card" wx:if="{{imagePath}}">
+      <text class="summary-title">本次上传图像</text>
+      <image class="source-image" src="{{imagePath}}" mode="widthFix"></image>
+    </view>
+
     <view class="diagnosis-row">
-      <view class="diagnosis-item {{!hasCancer ? 'active' : ''}}">
-        <view class="diagnosis-icon">{{!hasCancer ? '✓' : ''}}</view>
+      <view class="diagnosis-item {{result === 'normal' ? 'active' : ''}}">
+        <view class="diagnosis-icon">{{result === 'normal' ? '✓' : ''}}</view>
+        <text class="diagnosis-label">正常</text>
+      </view>
+      <view class="diagnosis-item {{result === 'benign' ? 'active' : ''}}">
+        <view class="diagnosis-icon">{{result === 'benign' ? '✓' : ''}}</view>
         <text class="diagnosis-label">良性</text>
       </view>
-      <view class="diagnosis-item {{hasCancer ? 'active' : ''}}">
-        <view class="diagnosis-icon">{{hasCancer ? '✓' : ''}}</view>
+      <view class="diagnosis-item {{result === 'malignant' ? 'active malignant-active' : ''}}">
+        <view class="diagnosis-icon">{{result === 'malignant' ? '✓' : ''}}</view>
         <text class="diagnosis-label">恶性</text>
       </view>
     </view>
@@ -25,6 +34,19 @@
         <text class="confidence-label">置信度</text>
       </view>
       <button class="detail-btn">详情</button>
+    </view>
+
+    <view class="probability-card">
+      <text class="probability-title">模型概率</text>
+      <view class="probability-row"><text>正常</text><text>{{probabilities.normal}}%</text></view>
+      <view class="probability-row"><text>良性</text><text>{{probabilities.benign}}%</text></view>
+      <view class="probability-row"><text>恶性</text><text>{{probabilities.malignant}}%</text></view>
+    </view>
+
+    <view class="mask-card" wx:if="{{maskUrl}}">
+      <text class="summary-title">病灶分割参考</text>
+      <image class="mask-image" src="{{maskUrl}}" mode="widthFix"></image>
+      <text class="mask-tip">白色区域为模型识别的病灶区域，仅供参考</text>
     </view>
     
     <view class="summary-card">

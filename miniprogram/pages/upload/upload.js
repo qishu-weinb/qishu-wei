@@ -1,4 +1,4 @@
-const { uploadDiagnosisImage } = require('../../util/request')
+const { uploadDiagnosisImage, getAssetUrl } = require('../../util/request')
 
 Page({
   data: {
@@ -32,6 +32,7 @@ Page({
   },
 
   handleUpload: function() {
+    var that = this
     if (!this.data.imagePath) {
       wx.showToast({ title: '请先选择图片', icon: 'none' })
       return
@@ -46,10 +47,17 @@ Page({
         recordId: data.recordId || data.id || '',
         imageId: data.imageId || '',
         imageUrl: data.imageUrl || '',
+        maskUrl: getAssetUrl(data.maskUrl || ''),
+        imagePath: that.data.imagePath,
+        result: data.result || '',
+        resultLabel: data.resultLabel || '',
         hasCancer: data.result === 'malignant',
         confidence: data.confidence || 0,
+        probabilities: data.probabilities || {},
         analysis: data.analysis || '',
         suggestion: data.suggestion || '',
+        modelVersion: data.modelVersion || '',
+        device: data.device || '',
         message: response.message || ''
       }
       wx.redirectTo({

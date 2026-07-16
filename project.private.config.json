@@ -1,7 +1,7 @@
 {
-  "projectname": "pro1",
+  "projectname": "qishu-weinb",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "coverView": true,
     "lazyloadPlaceholderEnable": false,
     "skylineRenderEnable": false,
@@ -19,5 +19,6 @@
     "ignoreDevUnusedFiles": true,
     "useApiHostProcess": true
   },
-  "libVersion": "3.15.2"
+  "libVersion": "3.15.2",
+  "condition": {}
 }

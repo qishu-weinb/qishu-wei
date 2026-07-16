@@ -12,3 +12,6 @@ ALLOWED_IMAGE_TYPES = {
     "image/jpeg": ".jpg",
     "image/png": ".png",
 }
+MODEL_PATH = BASE_DIR / "models" / "model_busbusi_multitask_fold1.pt"
+MODEL_VERSION = "efficientnet-b0-multitask-v1"
+MODEL_INPUT_SIZE = 256

@@ -28,7 +28,7 @@
    - 页面路由必须在 `app.json` 中注册
 
 4. **API调用规范**
-   - 使用统一封装的 `app.request()` 方法进行网络请求
+   - 使用 `miniprogram/util/request.js` 统一封装网络请求
    - 遵循 JWT token 认证机制
    - 处理网络异常和超时情况
 
@@ -82,11 +82,12 @@ miniprogram/
 |------|------|------|
 | `/api/register` | POST | 用户注册 |
 | `/api/login` | POST | 用户登录 |
-| `/api/upload` | POST | 图片上传 |
-| `/api/detect` | POST | 检测分析 |
+| `/api/upload/image` | POST | 上传图片并调用训练模型分析 |
+| `/api/model/health` | GET | 检查模型权重和推理设备 |
+| `/api/history` | GET | 获取检测历史 |
 
 ## 注意事项
 
-- 本项目为演示框架，后端API需自行搭建
+- 本项目已包含 FastAPI 后端和训练完成的推理权重，可按 `backend/README.md` 启动
 - 检测结果仅供参考，不能替代专业医生诊断
 - 开发过程中需严格遵守微信小程序平台规范
