@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# 权重（保留最佳权重）
+weights/*.pth
+!weights/ensemble_best_acc*.pth
+
+# 数据集
+dataset/
+dataset_split/
+dataset_split_debug/
+
+# 日志
+*.log
+training_log.txt
+training_curves.png
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# 系统
+Thumbs.db
+.DS_Store
