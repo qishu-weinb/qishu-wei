@@ -12,7 +12,7 @@ from ..config import ALLOWED_IMAGE_TYPES, MAX_UPLOAD_SIZE, MODEL_VERSION, UPLOAD
 from ..database import get_db
 from ..dependencies import current_user
 from ..models import DiagnosisRecord, PathologyImage, User
-from ..response import BusinessError, ok
+from ..response import BusinessError, fail, ok
 
 
 router = APIRouter(tags=["upload"])

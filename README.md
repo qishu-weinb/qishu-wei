@@ -73,7 +73,7 @@ miniprogram/
 
 1. 使用微信开发者工具打开项目
 2. 配置小程序 AppID（如需发布）
-3. 修改 `app.js` 中的 `baseUrl` 配置后端API地址
+3. 修改 `miniprogram/util/request.js` 中的 `BASE_URL` 配置后端API地址
 4. 预览或调试项目
 
 ## 后端API接口
